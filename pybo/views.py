@@ -29,8 +29,6 @@ def answer_create(request, question_id):
     pybo 답변등록
     """
     question = get_object_or_404(Question, pk=question_id)
-    # question.answer_set.create(content=request.POST.get('content'), create_date=timezone.now())
-    # return redirect('pybo:detail', question_id=question_id)
     if request.method == "POST":
         form = AnswerForm(request.POST)
         if form.is_valid():
@@ -48,8 +46,6 @@ def question_create(request):
     """
     pybo 질문등록
     """
-    # form = QuestionForm()
-    # return render(request, 'pybo/question_form.html', {'form' : form})
 
     if request.method == 'POST':
         form = QuestionForm(request.POST)
